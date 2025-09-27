@@ -18,7 +18,7 @@ Templates for **single-test** and **multi-testcase** problems are provided for f
     - (extendable to Div1, Div4, Educational, etc.)
 - Stores **practice problems** separately under `Practice`
 - Each problem solution:
-    - Lives in its own folder, e.g. `contests/Div3/Contest_0000/A.cpp` or `contests/Practice/A/Watermelon.cpp`
+    - Lives in its own folder, e.g. `contests/Div3/Contest_0000/A/A.cpp` or `contests/Practice/A/4A/Watermelon.cpp`
     - Uses a unified template (`template_single.cpp`, `template_tc.cpp`)
     - Supports **fast input-output macros** (`fastio`)
     - Builds automatically with CMake:
@@ -36,12 +36,14 @@ Codeforces-Solutions/
 │  ├─ Div2/
 │  ├─ Div3/
 │  │   └─ Contest_0000/
-│  │       ├─ A.cpp
-│  │       └─ input.txt
+│  │       └─ A/
+│  │           ├─ A.cpp
+│  │           └─ input.txt
 │  └─ Practice/
 │      └─ A/
-│          ├─ Watermelon.cpp
-│          └─ input.txt
+│          └─ 4A/
+│              ├─ Watermelon.cpp
+│              └─ input.txt
 ├─ template/
 │  ├─ template_single.cpp
 │  └─ template_tc.cpp
@@ -73,8 +75,8 @@ From the project root:
 To test a specific problem:
 
 ```bash
-./test.sh Practice_A_Watermelon contests/Practice/A/input.txt
-./test.sh Div3_Contest_0000_A contests/Div3/Contest_0000/input.txt
+./test.sh Practice_A_4A_Watermelon contests/Practice/A/4A/input.txt
+./test.sh Div3_Contest_0000_A_A contests/Div3/Contest_0000/A/input.txt
 ```
 
 If you omit the input path, `test.sh` will try to guess it automatically.
