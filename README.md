@@ -4,8 +4,8 @@
 ![Platform](https://img.shields.io/badge/IDE-CLion%20%7C%20VS%20Code%20%7C%20Xcode-orange)
 ![GitHub Repo stars](https://img.shields.io/github/stars/IDGwork/Codeforces-Solutions?style=social)
 
-A CMake-powered C++ project containing my **solutions for Codeforces contests**.  
-Each contest is placed in a division-specific folder (`Div2`, `Div3`, etc.), and problems are stored in subfolders (`Contest_xxxx/Problem.cpp`).  
+A CMake-powered C++ project containing my **solutions for Codeforces contests and practice problems**.  
+Each contest is placed in a division-specific folder (`Div2`, `Div3`, etc.), and practice problems are stored separately under `Practice`.  
 Templates for **single-test** and **multi-testcase** problems are provided for fast setup.
 
 ---
@@ -16,8 +16,9 @@ Templates for **single-test** and **multi-testcase** problems are provided for f
     - Div2 contests
     - Div3 contests
     - (extendable to Div1, Div4, Educational, etc.)
+- Stores **practice problems** separately under `Practice`
 - Each problem solution:
-    - Lives in its own contest folder: `contests/Div3/Contest_0000/A.cpp`
+    - Lives in its own folder, e.g. `contests/Div3/Contest_0000/A.cpp` or `contests/Practice/A/Watermelon.cpp`
     - Uses a unified template (`template_single.cpp`, `template_tc.cpp`)
     - Supports **fast input-output macros** (`fastio`)
     - Builds automatically with CMake:
@@ -37,9 +38,15 @@ Codeforces-Solutions/
 │  │   └─ Contest_0000/
 │  │       ├─ A.cpp
 │  │       └─ input.txt
+│  └─ Practice/
+│      └─ A/
+│          ├─ Watermelon.cpp
+│          └─ input.txt
 ├─ template/
 │  ├─ template_single.cpp
 │  └─ template_tc.cpp
+├─ build.sh
+├─ test.sh
 ├─ CMakeLists.txt
 └─ .gitignore
 ```
@@ -60,21 +67,17 @@ Codeforces-Solutions/
 From the project root:
 
 ```bash
-mkdir -p build
-cd build
-cmake ..
-make
+./build.sh
 ```
 
-To run a problem solution:
+To test a specific problem:
 
 ```bash
-./contests_Div3_Contest_0000_A < ../contests/Div3/Contest_0000/input.txt
+./test.sh Practice_A_Watermelon contests/Practice/A/input.txt
+./test.sh Div3_Contest_0000_A contests/Div3/Contest_0000/input.txt
 ```
 
-Or configure CLion:
-- Select the problem target (`contests_Div3_Contest_0000_A`)
-- Redirect input from `input.txt`
+If you omit the input path, `test.sh` will try to guess it automatically.
 
 ---
 
